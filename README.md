@@ -1,47 +1,20 @@
-# Superheroic Timekeeping
+# Superheroic Tallying
 
 ## The Application
 
-**Superheroic Timekeeping: an AngularJS Kata** is a demonstration of a simple 
+**Superheroic Tallying: an AngularJS Kata** is a demonstration of a simple 
   CRUD application, built in AngularJS from scratch using strict application 
   of test-driven development.  The application was built outside-in, 
   with a broad BDD-style integration test in test/features.js.
 
   The application, for the present has four principal features:
 
-  1. Display list of timesheet entries sorted by date.
-  1. Create a new timesheet entry.
-  1. Update an existing timesheet entry.
-  1. Destroy an existing timesheet entry.
+  1. Provide a display of a tally count.
+  1. Provide a means for incrementing the tally count.
+  1. Provide a means for resetting the tally count.
 
 As a natural outgrowth of the integration test development, a controller `AppVM`
-and a repository-like service, `entries` are built out with separate unit-tests.
-It is significant to note that `AppVM` and `entries` are tested in strict isolation.
-A few techniques are should be pointed out:
-
-1. The use of DI to dramatically simplify testing.  Note that very little setup
-or resonstruction is used to test functionality in response to user interaction
-to confirm intent to delete.  In this case, the `$window` service is used in the
-code to reach the browser `notify` function.  In the integration tests, $window
-is decorated to substitute a mock returning a specified value.
-
-1. Limited use of jasmine mock functionality.  We use spies solely to test in
-isolation that an external API `command` is used.  If the return value is
-important for the correctness of a test, the testing for that case should 
-be in the API unit test.  I tend to prefer direct testing of functionality with 
-hand-made mocks using javacript objects.
-
-## Next Steps
-
-Obvious next steps include better validation at many levels, and to deepen the
-unhappy path and error-checking portions of code.  Another obvious step is
-to add persitence, either by localStorage, a rest service, or a synchronized
-three-way data-binding service.  As built out, these are relatively
-straightforward exercises.
-
-Some obvious refactorings are required to make the code more useful.  `AppVM`
-is unhealthily coupled to view elements with confirm.  It is unclear how to
-generalize the `entries` service to plug in new persitence strategies.
+is built out with separate unit-tests.  `AppVM` is tested in strict isolation.
 
 ## Bunkai -- Breakdown and Application of the Techniques
 
@@ -141,8 +114,8 @@ Assuming you have installed node and bower, the following should execute
 the application:
 
 ```bash
-git clone https://github.com/wizardwerdna/superheroic-timekeeping.git
-cd superheroic-timekeeping
+git clone https://github.com/wizardwerdna/superheroic-tallying.git
+cd superheroic-tallying
 npm install && bower install
 grunt server
 ```

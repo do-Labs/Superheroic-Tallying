@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div class="jumbotron">
+  <H1>Superheroic Tallying</H1>
+  <P>an AngularJS Kata</P>
+</div>
+<div class="well">
+  <div ng-app="app" ng-controller="AppVM as vm">
+    <div class="count btn btn-lg btn-success">{{ vm.count }}</div>
+    <div class="tally btn btn-lg btn-primary" ng-click="vm.tally()">+</div>
+    <div class="reset btn btn-lg btn-danger" ng-click="vm.reset()">Reset</div>
+  </div>
+</div>
+</body>
+</html>
